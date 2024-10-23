@@ -1,0 +1,23 @@
+mode of operation
+
+1. ECB
+● PT enc key 
+● final asnwer - CT of each line written one after other
+
+2. CBC
+● CT1 = ( IV + PT1 ) enc key
+#next iteration
+● CT2 = (CT1 + PT2 ) enc key
+.
+.
+.
+
+3. OFB
+● IV2 = IV enc Key
+● CT1 = IV2 +  PT1 
+#next iteration
+● IV3 = IV2 enc key
+● CT2 = IV3 + PT2
+.
+.
+.

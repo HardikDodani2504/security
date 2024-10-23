@@ -1,0 +1,28 @@
+tcpdump & wireshark
+
+Choosing an interface:
+By default, tcpdump captures packets on all interfaces. To view a summary of available interfaces:
+● tcpdump -D
+
+Basic command for sniffing
+● tcpdump -n
+The -n parameter is given to stop tcpdump from resolving ip addresses to hostnames.
+example:
+tcpdump -v -n
+
+Selecting packets with specific protocol
+● tcpdump -n tcp
+●tcpdump -n icmp
+
+Capturing traffic from particular host or port
+● tcpdump -n src 172.16.92.1
+● tcpdump -n dst 172.16.92.1
+● tcpdump -n port 80
+● tcpdump port 80
+
+Specific Packets from specific port
+● tcpdump udp and src port 53
+
+Observing packets within a specific port range
+● tcpdump -n portrange 1-80
+It shows all packets whose source or destination port is between 1 to 80

@@ -1,0 +1,13 @@
+Playfair & vigenere
+
+#Playfair 
+1. construct 5x5 key
+2. make pair of 2 letter of PT, if repeating, add X in between, if odd number, add X in last
+3. same column  ↓ 
+   same row →
+   rectangle → ← (swap with last element in row)
+
+#Vigenere
+1. find numeric value of wach alphabet in PT and key
+2. ecryption => Ci = (Pi + Ki) mod 26
+   decryption => Pi = (Ci - Ki) mod 26

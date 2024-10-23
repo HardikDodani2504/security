@@ -1,0 +1,56 @@
+iptables
+
+{
+Chains:
+1.Those packets entering your machine that are destined for your machine. (INPUT)
+2.Those packets leaving your machine. (OUTPUT)
+3.Those packets entering your machine, but are destined for another machine and will pass
+through your machine (FORWARD).
+}
+
+{
+-L - List the current filter rules.
+-A - Append this rule to a rule chain.
+-p - The connection protocol used. 
+--dport - The destination port(s) required for this rule.
+-j - Jump to the specified target.
+    > ACCEPT - Accept the packet and stop processing rules in this chain. 
+    > REJECT - Reject the packet and notify the sender, and stop processing rules in this chain. 
+    > DROP - Silently ignore the packet, and stop processing rules in this chain. 
+    > LOG - Log the packet, and continue processing more rules in this chain.
+-i - Only match if the packet is coming in on the specified interface. 
+-I - Inserts a rule. Takes two options, the chain to insert the rule into, and the rule number it should be. 
+-v - Display more information in the output.
+}
+
+#List rules
+● sudo iptables -L 
+
+#Allow incoming traffic on the default SSH port (22)
+● sudo iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+
+#Allow all incoming web traffic
+● sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+#Block all traffic at the end.
+● sudo iptables -A INPUT -j DROP
+
+#Insert a rule for the loopback (so that its not blocked) at the start
+● sudo iptables -I INPUT 1 -i lo -j ACCEPT
+
+#Allow traffic on ICMP port
+● sudo iptables -A INPUT -p icmp -j ACCEPT
+
+#Clearing all rules
+●sudo iptables -F
+
+#Dropping icmp packets
+● ping 192.168.92.17 (IP address of neibhour) (u can see the response packets received.)
+● sudo iptables -A INPUT -p icmp -j DROP
+● ping 192.168.92.17 (u can not see receive icmp echo reply packets..)
+
+#Restrict outgoing icmp packets
+● sudo iptables -A OUTPUT -p icmp -j DROP
+
+#Blocking TCP port traffic
+● sudo iptables -A INPUT -p tcp -j DROP

@@ -1,0 +1,52 @@
+whois, dig, traceroute, nslookup, nikto, dmitry
+
+1. whois
+● whois wikipedia.com
+used to retrieve registration and ownership details of domain names, IP addresses, or ASNs by querying WHOIS databases.
+
+2. dig
+● dig google.com
+● `dig example.com MX` - Retrieves Mail Exchange records for "example.com."
+● `dig -x 8.8.8.8` - Performs reverse DNS lookup for IP address 8.8.8.8.
+● `dig +short example.com` - Shows only IP addresses associated with "example.com."
+● ’dig example.com NS +trace` - Traces delegation path and queries authoritative nameservers
+for "example.com."
+● `dig example.com AAAA +dnssec` - Requests IPv6 addresses with DNSSEC information.
+● `dig example.com SOA +noall +answer` - Retrieves Start of Authority record, displaying only
+the answer section.
+
+3. traceroute
+● traceoute wikipedia.com
+network diagnostic tool that traces the route and measures the round-trip time of packets as they travel through routers between a source and a destination IP address. It helps identify network paths and potential bottlenecks.
+
+4. nslookup
+● nslookup wikipedia.com
+Network utility used to query DNS servers for domain name resolution, IP address retrieval, and DNS record information.
+
+5. Nikto:
+● nikto -h wikipedia.com
+
+6. Dmitry:
+● dmitry google.com
+UNIX/(GNU)Linux command line application with the ability to gather as much information as possible about a host. Basic functionality of DMitry allows for information to be gathered about a target host from a simple
+whois lookup on the target to uptime reports and TCP port scans.
+
+WHOIS Lookup:
+● dmitry -w example.com
+IP WHOIS Lookup:
+● dmitry -wi 8.8.8.8
+Retrieve Netcraft Info:
+● dmitry -n example.com
+Search for Subdomains:
+● dmitry -s example.com
+Search for Email Addresses:
+● dmitry -e example.com
+TCP Port Scan:
+● dmitry -p example.com
+Save Output to example.txt:
+● dmitry -s -e -p example.com > example.txt
+
+Email Harvesting Command:
+● dmitry -e example.com
+Subdomain Harvesting Command:
+● dmitry -s example.com

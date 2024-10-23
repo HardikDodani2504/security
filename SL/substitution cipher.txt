@@ -1,0 +1,11 @@
+Shift and monoalphabetic substitution cipher
+
+
+In cryptography, a substitution cipher is a method of encrypting in which units of plaintext are replaced with the ciphertext, in a defined manner, with the help of a key; the "units" may be single letters (the most common), pairs of letters, triplets of letters, mixtures of the above, and so forth. The receiver deciphers the text by performing the inverse substitution process to extract the original message
+
+#monoalphabetic substitution cipher
+1. compare CT freq and PT freq
+2. replace highest freq CT with highest freq PT, then 2nd highest CT with 2md highest PT
+3. observe trends and make meaningful replacements
+4. A-Z PT ke corresponding jo CT hai usko line se likho to obtain final answer
+5. fill gaps by using permutations 

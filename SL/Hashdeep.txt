@@ -1,0 +1,42 @@
+Hashdeep
+
+1. To hash a file - 
+● hashdeep -b -s filename
+-b : don’t want to display the full path of file - 
+-s : supress any error messages- 
+
+2. apply multiple hash algorithms
+● hashdeep -c md5,sha1,sha256,tiger filename
+
+● hashdeep -c md5 *.txt
+● hashdeep -c md5,sha1 *.txt
+
+3. Hashing block of files- 
+● hashdeep -c md5 -p 100 example.txt
+
+4. recursively calculate hash (all files and subdirectories in a specified directory)
+● hashdeep c md5 -r /home/shachi/myfiles
+
+5. redirect the output of md5 hash of files to another file
+● md5deep *.txt>hashset.txt
+● hashdeep *.txt>hashtext1.txt
+
+6. display output in matching mode -
+● md5deep -m hashset.txt *
+● hashdeep -m -k hashset1.txt *
+
+7. supress unwanted system msgs/error - 
+● md5deep -m hashset.txt *
+● hashdeep -s -m hashset1.txt *
+
+8. display all files which are negatively matching - 
+● md5deep -s -x hashset.txt *
+● hashdeep -s -x hashset1.txt *
+
+#AUDITING:
+1. in home , create a folder "shrutik" which has a file "file.txt" which has content "hello"
+2. hashdeep -c md5 -r shrutik/ > hash.txt 
+3. hashdeep -a -r -k hash.txt shrutik/ 
+AUDIT PASS
+FOR AUDIT FAIL:
+4. change the content of file.txt

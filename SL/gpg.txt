@@ -1,0 +1,28 @@
+gpg
+
+ALICE TERMINAL:
+● gpg --full-generate-key -> 1 , 3072 , 0 , y Alice , alice@gmail.com , Alice's key , o
+
+BOB TERMINAL:
+● gpg --full-generate-key -> 1 , 3072 , 0 , y Bob , bob@gmail.com , Bob's key , o
+
+ALICE TERMINAL:
+● gpg --export -a alice@gmail.com > alice_public.asc
+● gpg --export-secret-key -a alice@gmail.com > alice_private.asc
+
+BOB TERMINAL:
+● gpg --export -a bob@gmail.com > bob_public.asc
+● gpg --export-secret-key -a bob@gmail.com > bob_private.asc
+● gpg --fingerprint bob@gmail.com
+
+ALICE TERMINAL:
+● gpg --import bob_public.asc
+● gpg --list-keys
+● gpg --list-keys bob@gmail.com
+● gpg --sign-key bob@gmail.com -> y
+● echo "Hello Bob, this is a secret message from Alice!" > secret_message.txt
+● gpg --encrypt -r bob@example.com secret_message.txt
+
+BOB TERMINAL:
+● gpg -o decrypted_message.txt -d secret_message.txt.gpg
+● cat decrypted_message.txt

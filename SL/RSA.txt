@@ -1,0 +1,17 @@
+RSA
+
+Let p and q be two large prime numbers
+Let N = pq be the modulus
+calculate phi = (p-1)(q-1)
+Choose e relatively prime to (p-1)(q-1)
+Find d = ((phi . k)+1)/e #k such that d is an integer
+Public key is (N,e) #e = public exponent
+Private key is (N,d) #d = private exponent
+
+To encrypt message M compute
+C = M^e mod N
+To decrypt C compute
+M = C^d mod N 
+
+1. https://cse29-iiith.vlabs.ac.in/exp/pkcs/simulation.html
+2. https://cse29-iiith.vlabs.ac.in/exp/digital-signatures/simulation.html

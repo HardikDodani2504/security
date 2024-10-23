@@ -1,0 +1,57 @@
+nmap
+
+1. TCP Connect Scan:
+● Command: `nmap -sT target_ip`
+- Explanation: TCP Connect Scan is a basic port scanning technique. It establishes a full connection
+to each target port to determine whether it's open or closed. Open ports will complete the connection,
+while closed ports will result in a refusal.
+
+2. TCP SYN Scan:
+● Command: `nmap -sS target_ip`
+- Explanation: TCP SYN Scan sends SYN packets to target ports and analyses the response. If a
+SYN/ACK is received, the port is open; if a RST is received, it's closed. This scan is stealthy and
+doesn't complete the full connection.
+
+3. FIN Scan:
+● Command: `nmap -sF target_ip`
+- Explanation: FIN Scan sends FIN packets to target ports. If the port is closed, it should respond
+with a RST. However, if the port is open, it may ignore the packet. This scan can be used to identify
+firewall filtering.
+
+4. Null Scan:
+● Command: `nmap -sN target_ip`
+- Explanation: Null Scan sends packets with no flags set to target ports. If the port is closed, it
+should respond with a RST. If it's open, it may ignore the packet. Similar to the FIN Scan, it can
+identify firewall filtering.
+
+5. XMAS Scan:
+● Command: `nmap -sX target_ip`
+- Explanation: XMAS Scan sends packets with multiple TCP flags set (FIN, URG, and PSH) to
+target ports. Similar to Null and FIN Scans, it's used to identify filtering or state of the ports.
+
+6. ACK Scan:
+● Command: `nmap -sA target_ip`
+- Explanation: ACK Scan sends packets with only the ACK flag set to target ports. It's used to detect
+stateful filtering systems. If it receives an RST, the port is unfiltered.
+
+7. Ping Sweep:
+● Command: `nmap -sn target_subnet`
+- Explanation: Ping Sweep scans a range of IP addresses to identify hosts that are up and responsive.
+It sends ICMP echo requests to discover active hosts in the specified subnet.
+
+8. Service and Version Detection:
+● Command: `nmap -sV target_ip`
+- Explanation: Service and Version Detection is used to identify the services and versions running on
+open ports. Nmap sends probes to the open ports and matches responses to a database of known
+services and versions.
+
+9. Port and Port Range Scanning:
+● Command: `nmap -p port(s) target_ip`
+- Explanation: Port and Port Range Scanning allows you to specify single ports or ranges to scan,
+helping you focus on specific services or areas of interest.
+
+10. OS Fingerprinting:
+● Command: `nmap -O target_ip`
+- Explanation: OS Fingerprinting is used to identify the operating system of the target host. Nmap
+analyses responses to specific probes and matches them to known OS signatures to make an educated
+guess about the OS.
